@@ -17,11 +17,11 @@ public class DriverSingleton {
             switch (System.getProperty("browser")){
                 case "chrome": {
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver(new ChromeOptions().setHeadless(false));
+                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                 }
                 default: {
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver(new FirefoxOptions().setHeadless(false));
+                    driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
                 }
             }
            
@@ -32,7 +32,7 @@ public class DriverSingleton {
     }
 
     public static void closeDriver(){
-        //driver.quit();
+        driver.quit();
         driver = null;
     }
 }
